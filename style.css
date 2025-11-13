@@ -20,8 +20,8 @@ body{
 #player{
     position: absolute;
     width: 380px;
-    top: 40%;
-    left: 5%;
+    /* top: 40%;
+    left: 5%; */
 
 }
 

@@ -1,8 +1,8 @@
 const gameArea= document.getElementById("game")
 const player= document.getElementById("player")
 
-let playerX= gameArea.clientWidth* 0.1
-let playerY= gameArea.clientHeight / 2
+let playerX= gameArea.clientWidth* 0.02
+let playerY= gameArea.clientHeight / 2.5
 
 const speed = 6
 const keys = {}
@@ -19,7 +19,7 @@ function playerMovement (){
 
 
     player.style.left= playerX +"px"
-    player.style.top= playerY +"py"
+    player.style.top= playerY +"px"
 
     requestAnimationFrame(playerMovement)
 
