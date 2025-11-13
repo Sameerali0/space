@@ -10,3 +10,24 @@ body{
     color: white;
 }
 
+#game {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+#player{
+    position: absolute;
+    width: 380px;
+    top: 40%;
+    left: 5%;
+
+}
+
+
+#player img{
+
+    width: 100%;
+    height: auto;
+}
