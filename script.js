@@ -18,9 +18,6 @@ function playerMovement (){
     if(keys["arrowright"])playerX += speed
 
 
-    player.style.left= playerX +"px"
-    player.style.top= playerY +"px"
-
     const limitX= gameArea.clientWidth - player.clientWidth
     const limitY= gameArea.clientHeight - player.clientHeight
 
@@ -31,6 +28,9 @@ function playerMovement (){
     if (playerX < 0) playerX= 0
         
     if (playerX > limitX) playerX= limitX
+
+    player.style.left= playerX +"px"
+    player.style.top= playerY +"px"
 
     requestAnimationFrame(playerMovement)
 
