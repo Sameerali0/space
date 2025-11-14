@@ -31,3 +31,14 @@ body{
     width: 100%;
     height: auto;
 }
+
+
+#star{
+    position: absolute;
+    width: 40px;
+}
+
+#star img{
+    width: 100%;
+    height: auto;
+}
