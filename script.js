@@ -1,5 +1,6 @@
 const gameArea= document.getElementById("game")
 const player= document.getElementById("player")
+const showScore= document.getElementById("score")
 
 let playerX= gameArea.clientWidth* 0.02
 let playerY= gameArea.clientHeight / 2.5
