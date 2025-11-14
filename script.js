@@ -6,7 +6,7 @@ let playerX= gameArea.clientWidth* 0.02
 let playerY= gameArea.clientHeight / 2.5
 
 let stars=[]
-
+let score = 0
 
 
 const speed = 6
@@ -80,6 +80,18 @@ function starMovement(){
               stars.splice(i, 1)
 
 
+        }
+
+        if(playerX < star.x + 40 && playerX + player.clientWidth > star.x &&
+           playerY < star.y + 40 && playerY + player.clientHeight > star.y
+        ){
+            
+            star.element.remove()
+            stars.splice(i, 1)
+
+            score++
+
+            showScore.textContent= "Score: " + score
         }
     }
 
