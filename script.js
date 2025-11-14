@@ -1,8 +1,12 @@
 const gameArea= document.getElementById("game")
 const player= document.getElementById("player")
+const star= document.getElementById("star")
 
 let playerX= gameArea.clientWidth* 0.02
 let playerY= gameArea.clientHeight / 2.5
+
+let starX= gameArea.clientWidth
+let starY= Math.random()* (gameArea.clientHeight - 50)
 
 const speed = 6
 const keys = {}
@@ -35,5 +39,25 @@ function playerMovement (){
     requestAnimationFrame(playerMovement)
 
 }
+
+function starMovement(){
+    starX -= 4
+
+
+    if(starX < -50){
+
+        starX= gameArea.clientWidth
+        starY= Math.random()* (gameArea.clientHeight -50)
+    }
+
+    star.style.left= starX + "px"
+    star.style.top= starY+"px"
+
+    requestAnimationFrame(starMovement)
+
+}
+
+
+starMovement()
 
 playerMovement()
