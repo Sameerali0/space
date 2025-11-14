@@ -1,12 +1,12 @@
 const gameArea= document.getElementById("game")
 const player= document.getElementById("player")
-const star= document.getElementById("star")
 
 let playerX= gameArea.clientWidth* 0.02
 let playerY= gameArea.clientHeight / 2.5
 
-let starX= gameArea.clientWidth
-let starY= Math.random()* (gameArea.clientHeight - 50)
+let stars=[]
+
+
 
 const speed = 6
 const keys = {}
@@ -40,23 +40,44 @@ function playerMovement (){
 
 }
 
-function starMovement(){
-    starX -= 4
+function star(){
+
+    const starDiv= document.createElement("div")
+    starDiv.classList.add("star")
+
+    const starImg= document.createElement("img")
+    starImg.src= "images/star.png"
+    starDiv.appendChild(starImg)
+
+    let starX= gameArea.clientWidth
+    let starY= Math.random()* (gameArea.clientHeight - 50)
 
 
-    if(starX < -50){
+    starDiv.style.left= starX + "px"
+    starDiv.style.top= starY+"px"
 
-        starX= gameArea.clientWidth
-        starY= Math.random()* (gameArea.clientHeight -50)
-    }
+    gameArea.appendChild(starDiv)
 
-    star.style.left= starX + "px"
-    star.style.top= starY+"px"
-
-    requestAnimationFrame(starMovement)
+    stars.push({
+        element: starDiv, x: starX, y: starY, speed: 4
+    })
 
 }
 
+function starMovement(){
+
+
+    for(let i= 0; i < stars.length; i++){
+        let star= stars[i]
+        star.x -= star.speed
+
+        star.element.style.left= star.x + "px"
+    }
+
+    requestAnimationFrame(starMovement)
+}
+
+setInterval(star, 800)
 
 starMovement()
 

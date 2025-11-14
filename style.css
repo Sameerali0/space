@@ -33,12 +33,12 @@ body{
 }
 
 
-#star{
+.star{
     position: absolute;
     width: 40px;
 }
 
-#star img{
+.star img{
     width: 100%;
     height: auto;
 }
