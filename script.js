@@ -67,11 +67,19 @@ function star(){
 function starMovement(){
 
 
-    for(let i= 0; i < stars.length; i++){
+    for(let i= stars.length - 1; i >= 0; i--){
         let star= stars[i]
         star.x -= star.speed
 
         star.element.style.left= star.x + "px"
+
+        if(star.x < -50){
+            
+              star.element.remove()
+              stars.splice(i, 1)
+
+
+        }
     }
 
     requestAnimationFrame(starMovement)
