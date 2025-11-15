@@ -1,6 +1,8 @@
 const gameArea= document.getElementById("game")
 const player= document.getElementById("player")
 const showScore= document.getElementById("score")
+const gameOverDiv= document.getElementById("gameOver")
+const finalScore= document.getElementById("finalScore")
 
 let playerX= gameArea.clientWidth* 0.02
 let playerY= gameArea.clientHeight / 2.5
@@ -146,8 +148,7 @@ function rockMovement(){
            playerY < rock.y + 60 && playerY + player.clientHeight > rock.y
         ){
 
-             alert("Game Over")
-             location.reload()
+             gameOver()
              return
         }
     }
@@ -156,9 +157,19 @@ function rockMovement(){
     
 }
 
-setInterval(rock, 1000)
+function gameOver(){
 
-setInterval(star, 800)
+    finalScore.textContent= "Your Score: " + score
+
+    gameOverDiv.style.display= "flex"
+
+    clearInterval(starInterval)
+    clearInterval(rockInterval)
+}
+
+const starInterval= setInterval(star, 800)
+
+const rockInterval= setInterval(rock, 1000)
 
 rockMovement()
 

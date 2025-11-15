@@ -65,3 +65,9 @@ body{
     height: auto;
 
 }
+
+
+#gameOver{
+    
+    display: none;
+}
