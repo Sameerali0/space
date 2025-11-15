@@ -142,8 +142,8 @@ function rockMovement(){
           }
 
 
-        if(playerX < rock.x + 100 && playerX + player.clientWidth > rock.x &&
-           playerY < rock.y + 100 && playerY + player.clientHeight > rock.y
+        if(playerX < rock.x + 60 && playerX + player.clientWidth > rock.x &&
+           playerY < rock.y + 60 && playerY + player.clientHeight > rock.y
         ){
 
              alert("Game Over")
