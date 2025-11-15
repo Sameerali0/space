@@ -52,3 +52,16 @@ body{
     font-size: 25px;
     font-weight: bold;
 }
+
+.rock{
+
+    position: absolute;
+    width: 100px;
+}
+
+
+.rock img{
+    width: 100%;
+    height: auto;
+
+}

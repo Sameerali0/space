@@ -98,6 +98,22 @@ function starMovement(){
     requestAnimationFrame(starMovement)
 }
 
+function rock(){
+
+    const rockDiv= document.createElement("div")
+    rockDiv.classList.add("rock")
+
+    const rockImg= document.createElement("img")
+    rockImg.src= "images/rock.png"
+    rockDiv.appendChild(rockImg)
+
+
+    gameArea.appendChild(rockDiv)
+
+}
+
+rock()
+
 setInterval(star, 800)
 
 starMovement()
