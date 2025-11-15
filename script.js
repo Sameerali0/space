@@ -6,6 +6,7 @@ let playerX= gameArea.clientWidth* 0.02
 let playerY= gameArea.clientHeight / 2.5
 
 let stars=[]
+let rocks=[]
 let score = 0
 
 
@@ -108,13 +109,58 @@ function rock(){
     rockDiv.appendChild(rockImg)
 
 
+    let rockX= gameArea.clientWidth
+    let rockY= Math.random() * (gameArea.clientHeight -70)
+
+    rockDiv.style.left= rockX +"px"
+    rockDiv.style.top= rockY+ "px"
+
     gameArea.appendChild(rockDiv)
 
+
+        rocks.push({
+
+            element: rockDiv, x: rockX, y: rockY, speed: 6  
+        })
 }
 
-rock()
+
+
+function rockMovement(){
+
+    for(let i= rocks.length - 1; i >= 0; i--){
+
+        let rock= rocks[i]
+        rock.x -= rock.speed
+
+        rock.element.style.left= rock.x +"px"
+
+
+          if(rock.x < -70){
+                rock.element.remove()
+                rocks.splice(i, 1)
+          }
+
+
+        if(playerX < rock.x + 100 && playerX + player.clientWidth > rock.x &&
+           playerY < rock.y + 100 && playerY + player.clientHeight > rock.y
+        ){
+
+             alert("Game Over")
+             location.reload()
+             return
+        }
+    }
+
+    requestAnimationFrame(rockMovement)
+    
+}
+
+setInterval(rock, 1000)
 
 setInterval(star, 800)
+
+rockMovement()
 
 starMovement()
 
