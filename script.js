@@ -5,6 +5,7 @@ const gameOverDiv= document.getElementById("gameOver")
 const finalScore= document.getElementById("finalScore")
 const playAgainBtn= document.getElementById("playAgain")
 const showHighScore= document.getElementById("highScore")
+const finalHighScore= document.getElementById("finalHighScore")
 
 
 let playerX
@@ -195,6 +196,8 @@ function gameOver(){
     }
 
     finalScore.textContent= "Your Score: " + score
+
+    finalHighScore.textContent= "High Score: " + highScore
 
     gameOverDiv.style.display= "flex"
 
