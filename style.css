@@ -81,3 +81,11 @@ body{
     z-index: 1000;
     display: none;
 }
+
+#gameOver button{
+    margin-top: 25px;
+    padding: 10px 22px;
+    font-size: 22px;
+    cursor: pointer;
+
+}

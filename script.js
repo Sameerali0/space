@@ -3,6 +3,7 @@ const player= document.getElementById("player")
 const showScore= document.getElementById("score")
 const gameOverDiv= document.getElementById("gameOver")
 const finalScore= document.getElementById("finalScore")
+const playAgainBtn= document.getElementById("playAgain")
 
 let playerX= gameArea.clientWidth* 0.02
 let playerY= gameArea.clientHeight / 2.5
@@ -170,6 +171,10 @@ function gameOver(){
 const starInterval= setInterval(star, 800)
 
 const rockInterval= setInterval(rock, 1000)
+
+playAgainBtn.addEventListener("click", () =>{
+    location.reload()
+})
 
 rockMovement()
 
