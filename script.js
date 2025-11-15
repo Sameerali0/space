@@ -4,6 +4,7 @@ const showScore= document.getElementById("score")
 const gameOverDiv= document.getElementById("gameOver")
 const finalScore= document.getElementById("finalScore")
 const playAgainBtn= document.getElementById("playAgain")
+const showHighScore= document.getElementById("highScore")
 
 
 let playerX
@@ -17,6 +18,10 @@ let starInterval
 let rockInterval
 
 let gameRunning= true
+
+let highScore= localStorage.getItem("highScore") || 0
+showHighScore.textContent= "High Score: " + highScore
+
 
 const speed = 6
 const keys = {}
@@ -182,6 +187,13 @@ function gameOver(){
 
     gameRunning= false
 
+    if(score > highScore){
+
+        highScore= score
+        localStorage.setItem("highScore", highScore)
+
+    }
+
     finalScore.textContent= "Your Score: " + score
 
     gameOverDiv.style.display= "flex"
@@ -211,8 +223,9 @@ function game() {
     stars= []
     rocks= []
 
-    score = 0
-    showScore.textContent = "Score: 0"
+    score= 0
+    showScore.textContent= "Score: 0"
+    showHighScore.textContent= "High Score: " + highScore
 
     resetPlayer()
 
