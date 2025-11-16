@@ -123,3 +123,15 @@ body{
     display: none;
 
 }
+
+
+#pauseBtn{
+    
+    position:absolute;
+    top:15px;
+    left: 50%;
+    font-size:20px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+}

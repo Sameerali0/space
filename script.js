@@ -7,6 +7,7 @@ const playAgainBtn= document.getElementById("playAgain")
 const showHighScore= document.getElementById("highScore")
 const finalHighScore= document.getElementById("finalHighScore")
 const showLevel= document.getElementById("level")
+const pauseBtn= document.getElementById("pauseBtn")
 
 
 let playerX
@@ -19,6 +20,7 @@ let score = 0
 let starInterval
 let rockInterval
 
+let isPaused= false
 let gameRunning= true
 
 let level= 1
@@ -256,6 +258,14 @@ function resetPlayer(){
 
 }
 
+function pauseGame(){
+    
+}
+
+function resumeGame(){
+    
+}
+
 
 function game() {
     
@@ -297,6 +307,18 @@ playerMovement()
 playAgainBtn.addEventListener("click", () =>{
 
     game()
+})
+
+pauseBtn.addEventListener("click", () =>{
+
+    if(!isPaused){
+
+        pauseGame()
+
+    }else{
+
+        resumeGame()
+    }
 })
 
 game()
