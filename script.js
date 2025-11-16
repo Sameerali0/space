@@ -24,6 +24,7 @@ let rocks=[]
 let rockets=[]
 
 let score = 0
+let rocketsThisLevel= 0
 
 let starInterval
 let rockInterval
@@ -82,9 +83,19 @@ function levelUp (){
 
         showLevelUp(level)
 
-        rocket()
-        setTimeout(rocket, 1200)
-        rocketMovement()
+        
+        rocketsThisLevel= 0
+
+        setTimeout(() =>{
+
+            rocket()
+        }, 4000)
+
+
+        setTimeout(() =>{
+
+            rocket()
+        }, 10000)
 
     }
 }
@@ -256,6 +267,18 @@ function rockMovement(){
 
 function rocket(){
 
+     if(!gameRunning){
+
+        return
+    }
+
+    if(rocketsThisLevel >= 2){
+
+        return
+    }
+
+    rocketsThisLevel++
+
     const rocketDiv= document.createElement("div")
     rocketDiv.classList.add("rocket")
 
@@ -402,6 +425,8 @@ function game() {
     showHighScore.textContent= "High Score: " + highScore
 
     resetPlayer()
+
+    rocketsThisLevel= 0
 
     gameRunning= true
 
