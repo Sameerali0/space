@@ -8,6 +8,8 @@ const showHighScore= document.getElementById("highScore")
 const finalHighScore= document.getElementById("finalHighScore")
 const showLevel= document.getElementById("level")
 const pauseBtn= document.getElementById("pauseBtn")
+const startScreen= document.getElementById("start")
+const startBtn= document.getElementById("startBtn")
 
 
 let playerX
@@ -342,4 +344,11 @@ pauseBtn.addEventListener("click", () =>{
     }
 })
 
-game()
+
+startBtn.addEventListener("click", () =>{
+
+     startScreen.style.display="none"
+
+    game()
+
+})
