@@ -28,6 +28,7 @@ let rocketsThisLevel= 0
 
 let starInterval
 let rockInterval
+let rocketInterval
 
 let isPaused= false
 let gameRunning= true
@@ -89,7 +90,7 @@ function levelUp (){
         setTimeout(() =>{
 
             rocket()
-        }, 4000)
+        }, 5000)
 
 
         setTimeout(() =>{
@@ -360,6 +361,7 @@ function gameOver(){
 
     clearInterval(starInterval)
     clearInterval(rockInterval)
+    clearInterval(rocketInterval)
 }
 
 function resetPlayer(){
@@ -427,6 +429,11 @@ function game() {
     resetPlayer()
 
     rocketsThisLevel= 0
+
+    rocketInterval = setInterval(() =>{
+
+        rocket()
+    }, 5000)
 
     gameRunning= true
 
