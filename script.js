@@ -12,6 +12,8 @@ const startScreen= document.getElementById("start")
 const startBtn= document.getElementById("startBtn")
 
 
+const starCollectSound = new Audio("sounds/star.mp3")
+
 let playerX
 let playerY
 
@@ -153,6 +155,10 @@ function starMovement(){
         if(playerX < star.x + 40 && playerX + player.clientWidth > star.x &&
            playerY < star.y + 40 && playerY + player.clientHeight > star.y
         ){
+            
+
+            starCollectSound.currentTime= 0
+            starCollectSound.play()
             
             star.element.remove()
             stars.splice(i, 1)
