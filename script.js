@@ -241,6 +241,23 @@ function rockMovement(){
     
 }
 
+
+function rocket(){
+
+    const rocketDiv= document.createElement("div")
+    rocketDiv.classList.add("rocket")
+
+    const rocketImg= document.createElement("img")
+    rocketImg.src= "images/rocket.png"
+    rocketDiv.appendChild(rocketImg)
+
+
+    gameArea.appendChild(rocketDiv)
+
+
+}
+
+rocket()
 function gameOver(){
 
     gameRunning= false
