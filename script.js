@@ -22,6 +22,8 @@ let rockInterval
 let gameRunning= true
 
 let level= 1
+let starSpeed= 4
+let rockSpeed= 6
 
 let highScore= localStorage.getItem("highScore") || 0
 showHighScore.textContent= "High Score: " + highScore
@@ -36,6 +38,19 @@ document.addEventListener("keyup", e =>keys[e.key.toLowerCase()]= false)
 function levelUp (){
 
     let newLevel= Math.floor(score / 10) + 1
+
+     if(newLevel !== level){
+        level= newLevel
+
+        starSpeed++
+        rockSpeed++
+
+        stars.forEach(s => s.speed= starSpeed)
+
+        rocks.forEach(r => r.speed= rockSpeed)
+
+        showLevel.textContent = "Level: " + level;
+    }
 }
 
 function playerMovement (){
@@ -89,7 +104,7 @@ function star(){
     gameArea.appendChild(starDiv)
 
     stars.push({
-        element: starDiv, x: starX, y: starY, speed: 4
+        element: starDiv, x: starX, y: starY, speed: starSpeed
     })
 
 }
@@ -125,6 +140,8 @@ function starMovement(){
             score++
 
             showScore.textContent= "Score: " + score
+
+            levelUp()
         }
     }
 
@@ -152,7 +169,7 @@ function rock(){
 
         rocks.push({
 
-            element: rockDiv, x: rockX, y: rockY, speed: 6  
+            element: rockDiv, x: rockX, y: rockY, speed: rockSpeed  
         })
 }
 
@@ -234,7 +251,13 @@ function game() {
     stars= []
     rocks= []
 
+    starSpeed= 4
+    rockSpeed= 6
+
     score= 0
+    level= 1
+
+    showLevel.textContent= "Level: 1"
     showScore.textContent= "Score: 0"
     showHighScore.textContent= "High Score: " + highScore
 
