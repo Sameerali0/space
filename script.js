@@ -6,6 +6,7 @@ const finalScore= document.getElementById("finalScore")
 const playAgainBtn= document.getElementById("playAgain")
 const showHighScore= document.getElementById("highScore")
 const finalHighScore= document.getElementById("finalHighScore")
+const showLevel= document.getElementById("level")
 
 
 let playerX
@@ -20,6 +21,8 @@ let rockInterval
 
 let gameRunning= true
 
+let level= 1
+
 let highScore= localStorage.getItem("highScore") || 0
 showHighScore.textContent= "High Score: " + highScore
 
@@ -29,6 +32,11 @@ const keys = {}
 
 document.addEventListener("keydown", e =>keys[e.key.toLowerCase()] = true)
 document.addEventListener("keyup", e =>keys[e.key.toLowerCase()]= false)
+
+function levelUp (){
+
+    let newLevel= Math.floor(score / 10) + 1
+}
 
 function playerMovement (){
 
