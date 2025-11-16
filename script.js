@@ -12,7 +12,9 @@ const startScreen= document.getElementById("start")
 const startBtn= document.getElementById("startBtn")
 
 
-const starCollectSound = new Audio("sounds/star.mp3")
+const starCollectSound= new Audio("sounds/star.mp3")
+const rockHitSound= new Audio("sounds/rock.mp3")
+
 
 let playerX
 let playerY
@@ -225,6 +227,10 @@ function rockMovement(){
         if(playerX < rock.x + 60 && playerX + player.clientWidth > rock.x &&
            playerY < rock.y + 60 && playerY + player.clientHeight > rock.y
         ){
+
+            
+            rockHitSound.currentTime= 0
+            rockHitSound.play()
 
              gameOver()
              return
