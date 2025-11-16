@@ -35,6 +35,19 @@ const keys = {}
 document.addEventListener("keydown", e =>keys[e.key.toLowerCase()] = true)
 document.addEventListener("keyup", e =>keys[e.key.toLowerCase()]= false)
 
+function showLevelUp(levelNum){
+
+    const levelUpDiv= document.getElementById("levelUp")
+    levelUpDiv.textContent= "LEVEL " + levelNum
+    levelUpDiv.style.display= "block"
+
+    setTimeout(() =>{
+
+        levelUpDiv.style.display= "none"
+    }, 800)
+}
+
+
 function levelUp (){
 
     let newLevel= Math.floor(score / 10) + 1
@@ -50,6 +63,9 @@ function levelUp (){
         rocks.forEach(r => r.speed= rockSpeed)
 
         showLevel.textContent = "Level: " + level;
+
+        showLevelUp(level)
+
     }
 }
 
