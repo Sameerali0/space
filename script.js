@@ -260,10 +260,31 @@ function resetPlayer(){
 
 function pauseGame(){
     
+    isPaused= true
+    gameRunning= false
+    pauseBtn.textContent= "Resume"
+
+
+    clearInterval(starInterval)
+
+    clearInterval(rockInterval)
+    
 }
 
 function resumeGame(){
     
+    isPaused= false
+    gameRunning= true
+    pauseBtn.textContent= "Pause"
+
+    starInterval= setInterval(star, 800)
+    rockInterval= setInterval(rock, 1000)
+
+
+    starMovement()
+    rockMovement()
+
+    playerMovement()
 }
 
 
