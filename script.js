@@ -21,6 +21,8 @@ let playerY
 
 let stars=[]
 let rocks=[]
+let rockets=[]
+
 let score = 0
 
 let starInterval
@@ -32,6 +34,8 @@ let gameRunning= true
 let level= 1
 let starSpeed= 4
 let rockSpeed= 6
+let rocketSpeed= 8
+
 
 let highScore= localStorage.getItem("highScore") || 0
 showHighScore.textContent= "High Score: " + highScore
@@ -65,14 +69,22 @@ function levelUp (){
 
         starSpeed++
         rockSpeed++
+        rocketSpeed++
 
         stars.forEach(s => s.speed= starSpeed)
 
         rocks.forEach(r => r.speed= rockSpeed)
 
+        rockets.forEach(rk => rk.speed= rocketSpeed)
+
+
         showLevel.textContent = "Level: " + level;
 
         showLevelUp(level)
+
+        rocket()
+        setTimeout(rocket, 1200)
+        rocketMovement()
 
     }
 }
@@ -228,7 +240,7 @@ function rockMovement(){
            playerY < rock.y + 60 && playerY + player.clientHeight > rock.y
         ){
 
-            
+
             rockHitSound.currentTime= 0
             rockHitSound.play()
 
@@ -252,12 +264,60 @@ function rocket(){
     rocketDiv.appendChild(rocketImg)
 
 
+    let rocketX= gameArea.clientWidth
+    let rocketY= Math.random()* (gameArea.clientHeight - 50)
+
+
+    rocketDiv.style.left= rocketX + "px"
+    rocketDiv.style.top= rocketY+"px"
+
     gameArea.appendChild(rocketDiv)
 
+    rockets.push({
+
+        element: rocketDiv, x: rocketX, y: rocketY, speed: rocketSpeed
+
+    })
 
 }
 
-rocket()
+
+function rocketMovement(){
+
+    if(!gameRunning){
+
+        return
+    }
+
+    for(let i= rockets.length - 1; i >= 0; i--){
+
+        let rocket= rockets[i]
+        rocket.x -= rocket.speed
+
+        rocket.element.style.left= rocket.x +"px"
+
+
+          if(rocket.x < -100){
+                rocket.element.remove()
+                rockets.splice(i, 1)
+          }
+
+
+        if(playerX < rocket.x + 70 && playerX + player.clientWidth > rocket.x &&
+           playerY < rocket.y + 70 && playerY + player.clientHeight > rocket.y
+        ){
+
+
+            gameOver()
+            return
+        }
+    }
+
+    requestAnimationFrame(rocketMovement)
+
+}
+
+
 function gameOver(){
 
     gameRunning= false
@@ -325,9 +385,11 @@ function game() {
 
     stars.forEach(s => s.element.remove())
     rocks.forEach(r => r.element.remove())
+    rockets.forEach(rk => rk.element.remove())
 
     stars= []
     rocks= []
+    rockets= []
 
     starSpeed= 4
     rockSpeed= 6
@@ -347,6 +409,7 @@ function game() {
 
     rockInterval= setInterval(rock, 1000)
 
+rocketMovement()
 
 rockMovement()
 
