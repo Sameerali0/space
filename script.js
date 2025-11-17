@@ -14,6 +14,7 @@ const startBtn= document.getElementById("startBtn")
 
 const starCollectSound= new Audio("sounds/star.mp3")
 const rockHitSound= new Audio("sounds/rock.mp3")
+const gameOverSound= new Audio("sounds/gameover.mp3")
 
 
 let playerX
@@ -345,6 +346,10 @@ function rocketMovement(){
 function gameOver(){
 
     gameRunning= false
+
+    gameOverSound.currentTime= 0
+    gameOverSound.play()
+    
 
     if(score > highScore){
 
