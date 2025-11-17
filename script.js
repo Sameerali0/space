@@ -11,6 +11,7 @@ const pauseBtn= document.getElementById("pauseBtn")
 const startScreen= document.getElementById("start")
 const startBtn= document.getElementById("startBtn")
 const showLives= document.getElementById("lives")
+const finalLevel= document.getElementById("finalLevel")
 
 
 const starCollectSound= new Audio("sounds/star.mp3")
@@ -388,6 +389,8 @@ function gameOver(){
     finalScore.textContent= "Your Score: " + score
 
     finalHighScore.textContent= "High Score: " + highScore
+
+    finalLevel.textContent= "Level Reached: " + level
 
     gameOverDiv.style.display= "flex"
 
