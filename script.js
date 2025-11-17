@@ -16,6 +16,7 @@ const finalLevel= document.getElementById("finalLevel")
 
 const starCollectSound= new Audio("sounds/star.mp3")
 const rockHitSound= new Audio("sounds/rock.mp3")
+const rocketHitSound= new Audio("sounds/rocket.mp3")
 const gameOverSound= new Audio("sounds/gameover.mp3")
 
 
@@ -345,6 +346,9 @@ function rocketMovement(){
         if(playerX < rocket.x + 70 && playerX + player.clientWidth > rocket.x &&
            playerY < rocket.y + 70 && playerY + player.clientHeight > rocket.y
         ){
+
+            rocketHitSound.currentTime= 0
+            rocketHitSound.play()
 
             redFlash()
 
