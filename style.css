@@ -162,12 +162,13 @@ body{
 
 #start h1{
 
-    margin-top: 10px;
-    font-size: 80px;
+    margin-top: 20px;
+    font-size: 60px;
+    font-weight: bold;
 }
 
 #startBtn{
-    margin-top: 12%;
+    margin-top: 15%;
 
     padding: 12px 22px;
     font-size: 22px;
