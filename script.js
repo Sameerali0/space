@@ -259,8 +259,17 @@ function rockMovement(){
             rockHitSound.currentTime= 0
             rockHitSound.play()
 
+            lives--
+            showLives.textContent= "lives: " + lives
+
+            rock.element.remove()
+            rocks.splice(i, 1)
+
+            if(lives <= 0){
              gameOver()
-             return
+
+            }
+             continue
         }
     }
 
@@ -351,7 +360,7 @@ function gameOver(){
 
     gameOverSound.currentTime= 0
     gameOverSound.play()
-    
+
 
     if(score > highScore){
 
@@ -428,7 +437,9 @@ function game() {
 
     score= 0
     level= 1
+    lives= 3
 
+    showLives.textContent = "Lives: " + lives
     showLevel.textContent= "Level: 1"
     showScore.textContent= "Score: 0"
     showHighScore.textContent= "High Score: " + highScore
