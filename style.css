@@ -168,8 +168,7 @@ body{
 }
 
 #startBtn{
-    margin-top: 15%;
-
+    margin-top: 7%;
     padding: 12px 22px;
     font-size: 22px;
     cursor: pointer;
@@ -203,4 +202,22 @@ body{
     pointer-events: none;
     z-index: 9000;
 
+}
+
+
+#howToPlay{
+    margin-top: 60px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 25px;
+    line-height: 35px;
+
+}
+
+
+#howToPlay h2{
+
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
