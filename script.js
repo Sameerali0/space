@@ -10,6 +10,7 @@ const showLevel= document.getElementById("level")
 const pauseBtn= document.getElementById("pauseBtn")
 const startScreen= document.getElementById("start")
 const startBtn= document.getElementById("startBtn")
+const showLives= document.getElementById("lives")
 
 
 const starCollectSound= new Audio("sounds/star.mp3")
@@ -26,6 +27,7 @@ let rockets=[]
 
 let score = 0
 let rocketsThisLevel= 0
+let lives= 3
 
 let starInterval
 let rockInterval
