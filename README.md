@@ -6,3 +6,6 @@
 - HTML
 - CSS
 - JavaScript
+
+## Screenshot
+![Screenshot](images/gameScreenshot.png) 
