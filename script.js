@@ -259,6 +259,8 @@ function rockMovement(){
             rockHitSound.currentTime= 0
             rockHitSound.play()
 
+            redFlash()
+
             lives--
             showLives.textContent= "Lives: " + lives
 
@@ -343,6 +345,7 @@ function rocketMovement(){
            playerY < rocket.y + 70 && playerY + player.clientHeight > rocket.y
         ){
 
+            redFlash()
 
             gameOver()
             return
@@ -350,6 +353,19 @@ function rocketMovement(){
     }
 
     requestAnimationFrame(rocketMovement)
+
+}
+
+function redFlash(){
+
+    const flash= document.getElementById("flash")
+    flash.style.opacity= "0.4"
+
+    setTimeout(() =>{
+
+        flash.style.opacity = "0"
+
+    }, 150);
 
 }
 
