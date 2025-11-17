@@ -45,7 +45,7 @@ body{
 }
 
 
-#score, #highScore, #level{
+#score, #highScore, #level, #lives{
 
     position: absolute;
     top: 15px;
@@ -67,6 +67,13 @@ body{
 
     left: 92%;
 }
+
+#lives{
+
+    color: red;
+    left: 80%;
+}
+
 .rock{
 
     position: absolute;

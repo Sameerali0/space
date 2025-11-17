@@ -260,7 +260,7 @@ function rockMovement(){
             rockHitSound.play()
 
             lives--
-            showLives.textContent= "lives: " + lives
+            showLives.textContent= "Lives: " + lives
 
             rock.element.remove()
             rocks.splice(i, 1)
